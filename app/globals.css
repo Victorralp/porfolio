@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-blue: #00f3ff;
+  --neon-purple: #9d4edd;
+  --neon-red: #ff2a6d;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 191 100% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 272 83% 58%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 346 100% 58%;
+    --accent-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.font-orbitron {
+  font-family: var(--font-orbitron);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+.glass-card {
+  background: rgba(10, 10, 15, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.neon-glow-blue {
+  text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+.neon-glow-purple {
+  text-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+}
+
+.neon-glow-red {
+  text-shadow: 0 0 5px var(--neon-red), 0 0 10px var(--neon-red), 0 0 20px var(--neon-red);
+}
+
+.neon-border-blue {
+  box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+}
+
+.neon-border-purple {
+  box-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple);
+}
+
+.neon-border-red {
+  box-shadow: 0 0 5px var(--neon-red), 0 0 10px var(--neon-red);
+}
+
+.glitch-effect {
+  position: relative;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-effect::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--neon-red);
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+  left: -2px;
+  text-shadow: 2px 0 var(--neon-blue);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0%,
+  100% {
+    clip-path: inset(50% 0 30% 0);
+  }
+  20% {
+    clip-path: inset(33% 0 33% 0);
+  }
+  40% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  60% {
+    clip-path: inset(62% 0 2% 0);
+  }
+  80% {
+    clip-path: inset(43% 0 27% 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0%,
+  100% {
+    clip-path: inset(25% 0 58% 0);
+  }
+  20% {
+    clip-path: inset(73% 0 6% 0);
+  }
+  40% {
+    clip-path: inset(54% 0 30% 0);
+  }
+  60% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  80% {
+    clip-path: inset(37% 0 47% 0);
+  }
+}
+
+.cyberpunk-grid {
+  background-image: linear-gradient(rgba(var(--primary), 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--primary), 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
